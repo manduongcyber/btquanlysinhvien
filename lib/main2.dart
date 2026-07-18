@@ -15,26 +15,16 @@ void main(){
 
   //Hiển thị danh sách sp
   print("2. Danh sách sản phẩm tồn kho");
-  print("Tên sản phẩm\t\t | Giá tiền\t | Số lượng");
-  for (var sp in products){
-    print("${sp['tensp']}\t\t" + "| ${sp['giatien']}\t" + "| ${sp['soluong']}");
-  }
+  //gọi hàm
+  inSanpham(products);
 
   //3.tìm kiếm sp theo tên
   print("------------------------------------------");
   print("3. Tìm kiếm sản phẩm");
   print("Nhập sản phẩm cần tìm:");
   name = stdin.readLineSync()!;
-  for (var sp in products){
-    if (sp['tensp'].toString().contains(name)){
-      print("${sp['tensp']}\t\t" + "| ${sp['giatien']}\t" + "| ${sp['soluong']}");
-      flag=true;
-      break;
-    }
-  }
-  if (flag==false){
-    print("Không tìm thấy sản phẩm cần tìm!");
-  }
+  //gọi hàm
+  timSanpham(products, name);
 
   //4.Bán sản phẩm
   flag=false;
@@ -44,21 +34,56 @@ void main(){
   name = stdin.readLineSync()!;
   print("Số lượng:");
   soluong = int.parse(stdin.readLineSync()!);
-  for (var sp in products){
-    if (sp['tensp'].toString().contains(name)){
-      tonkho=sp['soluong'];
-      if (tonkho >= soluong){
-        sp['soluong']=sp['soluong']-soluong;
-        print("Tồn kho ${sp['tensp']}" + " còn lại là: ${sp['soluong']}");
-      }
-      else{
-        print("Không đủ hàng tồn kho!");
-      }      
+  //gọi hàm
+  xuatSanpham(products,name,soluong);
+}
+
+void inSanpham(List<Map<String, dynamic>> product){
+  if (product.isNotEmpty){
+    print("Tên sản phẩm\t\t | Giá tiền\t | Số lượng");
+    for (var sp in product){
+      print("${sp['tensp']}\t\t" + "| ${sp['giatien']}\t" + "| ${sp['soluong']}");
+    }
+  }
+}
+
+//hàm tìm sản phẩm
+void timSanpham(List<Map<String, dynamic>> product,String tensp){
+  bool flag=false;
+  for (var sp in product){
+    if (sp['tensp'].toString().contains(tensp)){
+      print("Tìm thấy sản phẩm: ${sp['tensp']}\t\t" + "| ${sp['giatien']}\t" + "| ${sp['soluong']}");
       flag=true;
       break;
     }
   }
+  if (flag==false){
+    print("Không tìm thấy sản phẩm cần tìm!");
+  }
+}
+
+//bán sản phẩm
+void xuatSanpham(List<Map<String, dynamic>> product, String tensp, int soluong ){
+  int tonkho=0;
+  bool flag=false;
+
+  if (!product.isEmpty){    
+    for (var sp in product){
+      if (sp['tensp'].toString().contains(tensp)){
+        tonkho=sp['soluong'];
+        if (tonkho >= soluong){
+          sp['soluong']=sp['soluong']-soluong;
+          print("Tồn kho ${sp['tensp']}" + " còn lại là: ${sp['soluong']}");
+        }
+        else{
+          print("Không đủ hàng tồn kho!");
+        }      
+        flag=true;
+        break;
+      } //endif
+    } //endfor
+  }
   if (flag==false){  
     print("Không tìm thấy sản phẩm!");
-  }
+  }  
 }
