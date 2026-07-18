@@ -9,9 +9,7 @@ void main(){
     {'tensp':'Apple watch', 'giatien': 3000000.0, 'soluong': 3},
   ];
   String name="";
-  bool flag=false;
   int soluong=0;
-  int tonkho=0;
 
   //Hiển thị danh sách sp
   print("2. Danh sách sản phẩm tồn kho");
@@ -27,7 +25,6 @@ void main(){
   timSanpham(products, name);
 
   //4.Bán sản phẩm
-  flag=false;
   print("--------------------------------------------");
   print("4. Bán sản phẩm");
   print("Tên sản phẩm:");
