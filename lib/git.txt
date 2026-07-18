@@ -9,3 +9,8 @@ git push -u origin main
 Khi có sự thay đổi code  -> up lên lại repo:
 git commit -a -m 'update'
 git push origin main
+
+Khi thêm mới file  -> up lên lại repo:
+git add ./
+git commit -a -m 'update'
+git push origin main
