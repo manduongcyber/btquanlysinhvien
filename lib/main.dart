@@ -1,5 +1,4 @@
-void main(){
-  
+void main(){  
   List<Map<String, dynamic>>? students=[
     {'hoten':'Pháp', 'Toan': 8.0, 'Ly': 9.0, 'Hoa':7.0},
     {'hoten':'Hà Lan', 'Toan': 8.5, 'Ly': 7.0, 'Hoa':9.0},
