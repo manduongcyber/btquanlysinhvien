@@ -9,7 +9,8 @@ void main(){
   String xl="";
   double max=0.0;
   Map<String, dynamic> stdMax={'hoten':'', 'Toan': 0.0, 'Ly': 0.0, 'Hoa':0.0};
-  //in ds sinhvietn
+  
+  //1.in ds sinhvietn
   print('Danh sách sinh viên:');
   for (var sv in students) {
     dtb = (sv['Toan'] + sv['Ly'] + sv['Hoa']) / 3; 
@@ -36,6 +37,8 @@ void main(){
     // In thông tin sinh viên
     print('Họ tên: ${sv['hoten']} | ĐTB: ${dtb.toStringAsFixed(2).toString()}  | xếp loại: $xl');
   } //end for
+  //in sv có điểm cao nhất
+  print("-----------------------------------------------------");
   print("Sinh viên có điểm trung bình cao nhất:");
   print('Họ tên: ${stdMax['hoten']} | ĐTB: ${dtb.toStringAsFixed(2)}  | xếp loại: $xl');        
 
