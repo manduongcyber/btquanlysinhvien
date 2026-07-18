@@ -1,0 +1,11 @@
+LỆNH GIT THƯỜNG DÙNG
+
+git init
+git add ./
+git branch -M main
+git remote add origin <https://github.com/manduongcyber/xxx.git>
+git push -u origin main
+
+Khi có sự thay đổi code  -> up lên lại repo:
+git commit -a -m 'update'
+git push origin main
