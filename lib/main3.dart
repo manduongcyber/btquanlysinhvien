@@ -13,9 +13,9 @@ class Product{
     stdout.write('Tên sp: ');
     tensp = stdin.readLineSync()!;
     stdout.write('Giá tiền: ');
-    giatien = double.parse(stdin.readLineSync()!);
+    giatien = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0;//double.parse(stdin.readLineSync()!);
     stdout.write('Số lượng: ');
-    soluong = int.parse(stdin.readLineSync()!);
+    soluong = int.tryParse(stdin.readLineSync() ?? '') ?? 0; //int.parse(stdin.readLineSync()!);
   }
   //2. hiển thị danh sách
   void showSP(){

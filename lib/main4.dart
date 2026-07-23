@@ -33,11 +33,11 @@ class Student {
     stdout.write('Họ tên sinh viên: ');
     Hoten = stdin.readLineSync()!;
     stdout.write('Toán: ');
-    Toan = double.parse(stdin.readLineSync()!);
+    Toan = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0; //double.parse(stdin.readLineSync()!);
     stdout.write('Lý: ');
-    Ly = double.parse(stdin.readLineSync()!);
+    Ly = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0; //double.parse(stdin.readLineSync()!);
     stdout.write('Hoá: ');
-    Hoa = double.parse(stdin.readLineSync()!);
+    Hoa = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0; //double.parse(stdin.readLineSync()!);
   }
   //2.Hiển thị ds sv
   void display() {
@@ -67,7 +67,7 @@ void main() {
     print('0. Thoát');
 
     stdout.write('Chọn chức năng: ');
-    int choice = int.parse(stdin.readLineSync()!);
+    int choice = int.tryParse(stdin.readLineSync() ?? '') ?? 0;
 
     switch (choice) {
       //1. Nhập sv
